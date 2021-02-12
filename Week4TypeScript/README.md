@@ -1,3 +1,0 @@
-# TypeScript Training
-
-update readme

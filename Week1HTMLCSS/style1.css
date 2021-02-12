@@ -1,0 +1,103 @@
+table,td{
+    margin: 5px;
+    padding: 20px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+}
+th{
+    padding: 9px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#tb1 tr:nth-child(odd){
+    background-color: burlywood;
+}
+#tb1 tr:nth-child(even){
+    background-color:gold;
+}
+p{
+    margin: 15px;
+}
+p:hover{
+    color: green;
+}
+table:hover{
+    color: green;
+}
+
+.botpara{
+    color: gold;
+    font-size: larger;
+}
+
+div {
+    background-color: grey;
+    width: 300px;
+    border: 1px solid blue;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 50px;
+  }
+
+#para1{
+    word-wrap: break-word;
+    width: 200px;
+    border: 1px solid #000000;
+}
+
+@keyframes anima1{
+    0%{background-color: gold;}
+    25%{background-color: gray;}
+    50%{background-color: green;}
+    75%{background-color:red;}
+    100%{background-color: gold;}
+}
+
+#divanima{
+    width: 100px;
+  height: 100px;
+  background-color:gold;
+  position: relative;
+  animation-name: anima1;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+#divanima2 {
+    width: 50px;
+    height: 10px;
+    background-color: gray;
+    font-weight: bold;
+    position: relative;
+    animation: anima2 3s infinite;
+}
+
+@keyframes anima2 {
+    0% {left: 0px;}
+    50% {left: 300px;}
+    100%{left: 0px;}
+}
+
+#divanima3 {
+    width: 50px;
+    height: 10px;
+    background-color: gray;
+    font-weight: bold;
+    position: relative;
+    animation: anima2 3s infinite;
+}
+
+
+
+#divanima2 {
+    animation-timing-function: linear;
+}
+#divanima3 {
+    animation-timing-function: ease;
+}
