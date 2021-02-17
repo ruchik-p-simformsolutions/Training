@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+        <form autocomplete="off">
+            <fieldset>
+                <legend>Sign Up</legend>
+                <div>
+                    <input class="textInput" onchange="checkfname()" type="text" id="fname" name="fname" placeholder="Enter First Name" size="30" maxlength="15"><br>
+                    <span id="spanfname"></span>
+                </div>
+
+                <div>
+                    <input class="textInput" onchange="checklname()" type="text" id="lname" name="lname" placeholder="Enter Last Name" size="30" maxlength="15" ><br>
+                </div>
+
+                <div>
+                    <input class="textInput" type="text" id="uname" name="uname" placeholder="Enter User Name" size="30" maxlength="15" ><br>
+                </div>
+
+                <div>
+                    <input class="textInput" onchange="checkEmail()" onmouseover="unamefun()" onmouseout="unamefun2()" type="text" id="email" name="email" placeholder="Enter Email" size="30" maxlength="30"><br>
+                </div>
+
+                <div>
+                    <input class="textInput" onmouseover="unamefun()" onmouseout="unamefun2()" type="tel" id="phone" name="phone" placeholder="Enter Phone Number" size="30" maxlength="10"><br>
+                </div>
+
+                
+                <div>
+                    <input class="cityCountry" onchange="cityInput()" onmouseover="unamefun()" onmouseout="unamefun2()" list="city" placeholder="Enter City" size="15" name="cityvalue">
+                    <datalist onchange="cityInput" onmouseover="unamefun()" onmouseout="unamefun2()">
+                        <option>Delhi</option>
+                        <option>Mumbai</option>
+                        <option>London</option>
+                        <option>Boston</option>
+                        <option>Sanghai</option>
+                    </datalist>
+                    <input class="cityCountry" onmouseover="unamefun()" onmouseout="unamefun2()" list="country" placeholder="Enter Country" size="15" id="countryvalue">
+                    <datalist id="country" onmouseover="unamefun()" onmouseout="unamefun2()"  id="countryvalue">
+                        <option>India</option>
+                        <option>UK</option>
+                        <option>USA</option>
+                        <option>China</option>
+                    </datalist>
+                </div>
+
+                <div>
+                    <input class="textInput" onmouseover="unamefun()" onmouseout="unamefun2()" list="birthyear" placeholder="Enter Birth Year" size="30">
+                    <datalist id="birthyear" onmouseover="unamefun()" onmouseout="unamefun2()">
+                        <option>1991</option>
+                        <option>1992</option>
+                        <option>1993</option>
+                        <option>1994</option>
+                        <option>1995</option>
+                        <option>1996</option>
+                        <option>1997</option>
+                        <option>1998</option>
+                        <option>1999</option>
+                        <option>2000</option>
+                    </datalist>
+                </div>
+
+                <div>
+                    <input onmouseover="unamefun()" onmouseout="unamefun2()" type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input onmouseover="unamefun()" onmouseout="unamefun2()" type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+
+                <div>
+                    <button onclick="checkValidation()" type="submit">submit</button>
+                </div>
+                <!-- <input type="reset"> -->
+            </fieldset>
+        </form>
+        <script src="script1.js"></script>
+
+</body>
+</html>
