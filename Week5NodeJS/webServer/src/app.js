@@ -18,27 +18,26 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.get("", (req, res) => {
   //
   res.render("index", {
-    title: "Index file",
-    author: "Bob",
+    title: "Welcome to Weather App",
   });
 });
 
 app.get("/about", (req, res) => {
   res.render("about", {
-    title: "About US",
-    author: "Bob",
+    title: "About us",
   });
 });
 
 app.get("/help", (req, res) => {
   res.render("help", {
     title: "Help page",
-    author: "Bob",
   });
 });
 
 app.get("*",(req,res)=>{
-    res.send("404");
+  res.render("404", {
+    title: "404",
+  });
 })
 
 app.listen(3000, () => {
