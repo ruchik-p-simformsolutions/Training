@@ -1,8 +1,12 @@
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
+const request = require("request");
+const geocode = require("./utils/geocode");
+const forecast = require("./utils/forecast");
 
 const app = express();
+const port=process.env.PORT||3000;
 
 //define paths
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -34,12 +38,42 @@ app.get("/help", (req, res) => {
   });
 });
 
-app.get("*",(req,res)=>{
+app.get("/search", (req, res) => {
+  const location = req.query.address;
+  if (!location) {
+    return res.send({ error: "enter address" });
+  }
+  // console.log(req.query.address);
+  geocode.geolocation(location, (error, { latitude, longitude } = {}) => {
+    if (error) {
+      return res.send({
+        error: error,
+      });
+    }
+    forecast.weather(
+      latitude,
+      longitude,
+      (error, { temperature, location } = {}) => {
+        if (error) {
+          return res.send({
+            error: error,
+          });
+        }
+        res.send({
+          location: location,
+          temperature: temperature,
+        });
+      }
+    );
+  });
+});
+
+app.get("*", (req, res) => {
   res.render("404", {
     title: "404",
   });
-})
+});
 
-app.listen(3000, () => {
-  console.log("server is running...");
+app.listen(port, () => {
+  console.log("server is running on "+port);
 });
