@@ -45,4 +45,27 @@ const main=async()=>{
   await user.populate('tasks').execPopulate();
   console.log(user.tasks);
 }
-main(); 
+// main(); 
+
+
+const multer=require('multer');
+const router = require("../src/routers/user");
+const upload=multer({
+  dest:'images',
+  limits:1000000,
+  fileFilter(req,file,cb){
+    if(!file.originalname.match(/\.(doc|docx)$/)){
+      return cb(new Error("upload a word file"));
+      
+    }
+    cb(undefined,true);
+  }
+})
+
+app.post('/upload',upload.single('upload'),(req,res)=>{
+  res.send();
+},(error,req,res,next)=>{
+  res.status(400).send({
+    error:error.message
+  })
+})
